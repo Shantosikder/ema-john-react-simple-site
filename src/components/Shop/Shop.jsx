@@ -39,7 +39,17 @@ const Shop = () => {
     }, [products]);
 
     const handleAddToCard = (product) =>{
-        const newCard = [...card, product];
+        let newCard = [];
+        // const newCard = [...card, product];
+        const exists = card.find(pd => pd.id === product.id);
+        if(!exists){
+            product.quantity =1;
+            newCard = [...card, product];
+        }else{
+            exists.Product = exists.product+1;
+            const remaining = card.filter(pd=>pd.id !==product.id);
+            newCard = [...remaining, exists];
+        }
         setCard(newCard);
         addToDb(product.id);
     }
