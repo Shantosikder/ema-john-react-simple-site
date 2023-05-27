@@ -3,7 +3,7 @@ import './Card.css';
 
 const Card = ({card}) => {
     // const {card} = props;
-    console.log(card)
+    // console.log(card)
     let totalPrice = 0;
     let totalShipping = 0;
     for(const product of card){
